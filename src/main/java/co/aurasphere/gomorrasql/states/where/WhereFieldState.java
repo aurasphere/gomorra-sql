@@ -15,10 +15,5 @@ public class WhereFieldState extends AbstractState {
 	public AbstractState transitionToNextState(String token) throws CaggiaFaException {
 		return new WhereOperatorState(queryInfo, new WhereCondition(token));
 	}
-	
-	@Override
-	public boolean isFinalState() {
-		return true;
-	}
 
 }

@@ -23,7 +23,6 @@ public class WhereJoinState extends AbstractState {
 			queryInfo.addWhereConditionsJoinOperator("OR");
 			return new WhereFieldState(queryInfo);
 		}
-		// TODO: Skip and limit
 		throw new CaggiaFaException(Arrays.asList(Keywords.AND_KEYWORD, Keywords.OR_KEYWORD), token);
 	}
 	

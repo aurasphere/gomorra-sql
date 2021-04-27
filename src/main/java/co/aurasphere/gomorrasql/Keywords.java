@@ -10,7 +10,6 @@ public class Keywords {
 	public static final String[] FROM_KEYWORDS = { "mmiez", "'a" };
 	public final static String[] ASTERISK_KEYWORDS = { "tutto", "chillo", "ch'era", "'o", "nuostro" };
 	public final static String WHERE_KEYWORD = "arò";
-	public final static String END_QUERY_KEYWORD = ";";
 	public final static String[] BEGIN_TRANSACTION_KEYWORDS = { "ua", "uagliò" };
 	public final static String[] COMMIT_KEYWORDS = { "iamme", "bello", "ia'" };
 	public final static String ROLLBACK_KEYWORD = "sfaccimm";

@@ -130,8 +130,6 @@ public class GomorraSqlInterpreter {
 		// Where
 		query += buildWhereClause(queryInfo);
 
-		// TODO: skip/limit
-
 		return query;
 	}
 

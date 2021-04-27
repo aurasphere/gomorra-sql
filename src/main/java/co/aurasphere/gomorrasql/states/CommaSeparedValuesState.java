@@ -15,6 +15,7 @@ public class CommaSeparedValuesState extends AbstractState {
 	private Function<QueryInfo, AbstractState> transitionFunction;
 	private String expectedToken;
 	private boolean canBeFinalState = false;
+	private boolean optionalValues = false;
 
 	public CommaSeparedValuesState(QueryInfo queryInfo, List<String> collector, String nextToken, String expectedToken,
 			Function<QueryInfo, AbstractState> transitionFunction) {
@@ -26,12 +27,13 @@ public class CommaSeparedValuesState extends AbstractState {
 	}
 
 	public CommaSeparedValuesState(QueryInfo queryInfo, List<String> collector, String nextToken, String expectedToken,
-			Function<QueryInfo, AbstractState> transitionFunction, boolean lastWasComma) {
+			Function<QueryInfo, AbstractState> transitionFunction, boolean lastWasComma, boolean canBeFinalState) {
 		this(queryInfo, collector, nextToken, expectedToken, transitionFunction);
-		
+
 		// Used when the first token is not consumed by the previous state.
 		this.lastWasComma = lastWasComma;
-		this.canBeFinalState = true;
+		this.canBeFinalState = canBeFinalState;
+		this.optionalValues = true;
 	}
 
 	@Override
@@ -49,6 +51,11 @@ public class CommaSeparedValuesState extends AbstractState {
 
 		// Case ", %expectedToken%"
 		if (lastWasComma) {
+			if (optionalValues && token.equalsIgnoreCase(nextToken)) {
+				return transitionFunction.apply(queryInfo);
+			} else {
+				optionalValues = false;
+			}
 			collector.add(token);
 			lastWasComma = false;
 			return this;

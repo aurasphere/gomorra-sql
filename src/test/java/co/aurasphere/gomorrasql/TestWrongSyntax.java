@@ -64,4 +64,16 @@ public class TestWrongSyntax {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
 		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id !! 4");
 	}
+	
+	@Test(expected = CaggiaFaException.class)
+	public void testWrongWhereJoinOperator() throws SQLException {
+		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
+		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id <= 4 ma 5 > 1");
+	}
+	
+	@Test(expected = CaggiaFaException.class)
+	public void testWrongWhereClause() throws SQLException {
+		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
+		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city quando city_id <= 4 e 5 > 1");
+	}
 }

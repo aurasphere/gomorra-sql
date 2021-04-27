@@ -20,12 +20,9 @@ public class OptionalWhereState extends AbstractState {
 
 	@Override
 	public AbstractState transitionToNextState(String token) throws CaggiaFaException {
-		List<String> expectedKeywords = new ArrayList<>(Arrays.asList(Keywords.WHERE_KEYWORD, Keywords.END_QUERY_KEYWORD));
+		List<String> expectedKeywords = new ArrayList<>(Arrays.asList(Keywords.WHERE_KEYWORD));
 		if (token.equalsIgnoreCase(Keywords.WHERE_KEYWORD)) {
 			return new WhereFieldState(queryInfo);
-		}
-		if (token.equalsIgnoreCase(Keywords.END_QUERY_KEYWORD)) {
-			return this;
 		}
 		if (queryInfo.getType().equals(QueryType.SELECT)) {
 			// TODO: skip and limit
