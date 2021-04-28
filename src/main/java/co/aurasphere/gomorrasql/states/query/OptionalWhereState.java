@@ -1,4 +1,4 @@
-package co.aurasphere.gomorrasql.states.where;
+package co.aurasphere.gomorrasql.states.query;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +9,9 @@ import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 import co.aurasphere.gomorrasql.model.QueryInfo.QueryType;
 import co.aurasphere.gomorrasql.states.AbstractState;
+import co.aurasphere.gomorrasql.states.AnyTokenConsumerState;
 import co.aurasphere.gomorrasql.states.GreedyMatchKeywordState;
-import co.aurasphere.gomorrasql.states.select.SelectJoinTableNameState;
+import co.aurasphere.gomorrasql.states.where.WhereFieldState;
 
 public class OptionalWhereState extends AbstractState {
 
@@ -25,10 +26,10 @@ public class OptionalWhereState extends AbstractState {
 			return new WhereFieldState(queryInfo);
 		}
 		if (queryInfo.getType().equals(QueryType.SELECT)) {
-			// TODO: skip and limit
 			expectedKeywords.add(Keywords.JOIN_KEYWORDS[0]);
 			if (token.equalsIgnoreCase(Keywords.JOIN_KEYWORDS[0])) {
-				return new GreedyMatchKeywordState(queryInfo, Keywords.JOIN_KEYWORDS, SelectJoinTableNameState::new);
+				return new GreedyMatchKeywordState(queryInfo, Keywords.JOIN_KEYWORDS,
+						q -> new AnyTokenConsumerState(q, q::addJoinedTable, OptionalWhereState::new));
 			}
 		}
 		throw new CaggiaFaException(expectedKeywords, token);

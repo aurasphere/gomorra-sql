@@ -1,8 +1,5 @@
 package co.aurasphere.gomorrasql.states.where;
 
-import java.util.Arrays;
-import java.util.List;
-
 import co.aurasphere.gomorrasql.Keywords;
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
@@ -14,9 +11,6 @@ public class WhereOperatorState extends AbstractState {
 
 	private WhereCondition condition;
 
-	private final static List<String> validOperators = Arrays.asList(">", "<", "=", "!=", "<>", ">=", "<=", Keywords.IS_KEYWORD,
-			Keywords.IS_NOT_KEYWORDS[0]);
-
 	public WhereOperatorState(QueryInfo queryInfo, WhereCondition condition) {
 		super(queryInfo);
 		this.condition = condition;
@@ -24,7 +18,7 @@ public class WhereOperatorState extends AbstractState {
 
 	@Override
 	public AbstractState transitionToNextState(String token) throws CaggiaFaException {
-		if (validOperators.contains(token)) {
+		if (Keywords.WHERE_OPERATORS.contains(token)) {
 			if (token.equalsIgnoreCase(Keywords.IS_NOT_KEYWORDS[0])) {
 				condition.setOperator("IS NOT");
 				return new GreedyMatchKeywordState(queryInfo, Keywords.IS_NOT_KEYWORDS, q -> new WhereValueState(q, condition));
@@ -36,7 +30,7 @@ public class WhereOperatorState extends AbstractState {
 			}
 			return new WhereValueState(queryInfo, condition);
 		}
-		throw new CaggiaFaException(validOperators, token);
+		throw new CaggiaFaException(Keywords.WHERE_OPERATORS, token);
 	}
 
 }

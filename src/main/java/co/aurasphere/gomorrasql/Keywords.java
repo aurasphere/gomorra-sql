@@ -1,5 +1,8 @@
 package co.aurasphere.gomorrasql;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Keywords {
 
 	public final static String SELECT_KEYWORD = "ripigliammo";
@@ -20,5 +23,7 @@ public class Keywords {
 	public final static String VALUES_KEYWORD = "chist";
 	public final static String[] IS_NOT_KEYWORDS = { "nun", "è" };
 	public final static String SET_KEYWORD = "accunza";
-
+	public final static List<String> WHERE_OPERATORS = Arrays.asList(">", "<", "=", "!=", "<>", ">=", "<=",
+			Keywords.IS_KEYWORD, Keywords.IS_NOT_KEYWORDS[0]);
+	public final static String SET_EQUAL_KEYWORD = "accussì";
 }

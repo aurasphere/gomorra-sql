@@ -107,9 +107,7 @@ public class TestSelect {
 		String[] cities = { "MILANO", "NEW YORK" };
 		while (resultSet.next()) {
 			String name = resultSet.getString(1);
-			System.out.println(name);
 			String city = resultSet.getString(2);
-			System.out.println(city);
 			Assert.assertEquals(names[counter - 1], name);
 			Assert.assertEquals(cities[counter - 1], city);
 			counter++;

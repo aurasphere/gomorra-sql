@@ -20,10 +20,5 @@ public abstract class AbstractState {
 	public QueryInfo getQueryInfo() {
 		return queryInfo;
 	}
-
-	@Override
-	public String toString() {
-		return this.getClass().getSimpleName() + "[queryInfo=" + queryInfo + "]";
-	}
 	
 }
