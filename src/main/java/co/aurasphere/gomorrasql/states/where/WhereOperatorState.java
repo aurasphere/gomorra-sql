@@ -7,6 +7,13 @@ import co.aurasphere.gomorrasql.model.WhereCondition;
 import co.aurasphere.gomorrasql.states.AbstractState;
 import co.aurasphere.gomorrasql.states.GreedyMatchKeywordState;
 
+/**
+ * State for continuing the last WHERE subclause in the format "field operator
+ * value" by inserting the operator.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class WhereOperatorState extends AbstractState {
 
 	private WhereCondition condition;

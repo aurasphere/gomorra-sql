@@ -8,6 +8,13 @@ import co.aurasphere.gomorrasql.states.AnyTokenConsumerState;
 import co.aurasphere.gomorrasql.states.CommaSeparedValuesState;
 import co.aurasphere.gomorrasql.states.GreedyMatchKeywordState;
 
+/**
+ * State that allows a select to switch between the * operator and the column
+ * names to rietrieve.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class SelectColumnsState extends AbstractState {
 
 	public SelectColumnsState(QueryInfo queryInfo) {

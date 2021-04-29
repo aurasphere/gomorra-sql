@@ -5,7 +5,13 @@ import java.util.function.Function;
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 
-// State that proceeds to the next one if all the given keywords are matched, otherwise throws an exception
+/**
+ * State that proceeds to the next one if all the given keywords are matched,
+ * otherwise throws an exception.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class GreedyMatchKeywordState extends AbstractState {
 
 	private int currentIndex = 1;

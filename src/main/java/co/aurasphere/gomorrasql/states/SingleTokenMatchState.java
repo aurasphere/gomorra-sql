@@ -5,6 +5,12 @@ import java.util.function.Function;
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 
+/**
+ * States that proceeds if a specific token is matched exactly.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class SingleTokenMatchState extends AbstractState {
 
 	private String expectedToken;

@@ -10,6 +10,13 @@ import co.aurasphere.gomorrasql.states.query.OptionalWhereState;
 import co.aurasphere.gomorrasql.states.query.SelectColumnsState;
 import co.aurasphere.gomorrasql.states.query.UpdateSetState;
 
+/**
+ * First state when parsing a query. It switches through the various possible
+ * queries according to the first token.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class InitialState extends AbstractState {
 
 	public InitialState() {
@@ -32,17 +39,17 @@ public class InitialState extends AbstractState {
 		}
 		if (token.equalsIgnoreCase(Keywords.DELETE_KEYWORDS[0])) {
 			queryInfo.setType(QueryType.DELETE);
-			return new GreedyMatchKeywordState(queryInfo, Keywords.DELETE_KEYWORDS, q -> new GreedyMatchKeywordState(q,
-					Keywords.FROM_KEYWORDS, q2 -> new AnyTokenConsumerState(q2, q2::setTableName, OptionalWhereState::new), 0));
+			return new GreedyMatchKeywordState(queryInfo, Keywords.DELETE_KEYWORDS,
+					q -> new GreedyMatchKeywordState(q, Keywords.FROM_KEYWORDS,
+							q2 -> new AnyTokenConsumerState(q2, q2::setTableName, OptionalWhereState::new), 0));
 		}
 		if (token.equalsIgnoreCase(Keywords.INSERT_KEYWORDS[0])) {
 			queryInfo.setType(QueryType.INSERT);
 			return new GreedyMatchKeywordState(queryInfo, Keywords.INSERT_KEYWORDS,
 					q -> new AnyTokenConsumerState(q, q::setTableName,
 							q2 -> new CommaSeparedValuesState(q2, q2.getColumnNames(), Keywords.VALUES_KEYWORD,
-									"%COLUMN_NAME%", q3 -> new CommaSeparedValuesState(q3, q3.getValues(), null,
-											"%VALUE%", FinalState::new, true, true),
-									true, false)));
+									"%COLUMN_NAME%", true, false, q3 -> new CommaSeparedValuesState(q3, q3.getValues(),
+											null, "%VALUE%", true, true, FinalState::new))));
 		}
 		if (token.equalsIgnoreCase(Keywords.COMMIT_KEYWORDS[0])) {
 			queryInfo.setType(QueryType.COMMIT);

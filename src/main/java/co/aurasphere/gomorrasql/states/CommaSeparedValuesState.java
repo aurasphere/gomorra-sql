@@ -7,6 +7,14 @@ import java.util.function.Function;
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 
+/**
+ * State that parses a list of values, separed by a comma. It stops when there's
+ * no more comma and checks if the token after is the expected one (set in the
+ * constructor). It can be configured to be a final state.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class CommaSeparedValuesState extends AbstractState {
 
 	private boolean lastWasComma = false;
@@ -27,7 +35,7 @@ public class CommaSeparedValuesState extends AbstractState {
 	}
 
 	public CommaSeparedValuesState(QueryInfo queryInfo, List<String> collector, String nextToken, String expectedToken,
-			Function<QueryInfo, AbstractState> transitionFunction, boolean lastWasComma, boolean canBeFinalState) {
+			boolean lastWasComma, boolean canBeFinalState, Function<QueryInfo, AbstractState> transitionFunction) {
 		this(queryInfo, collector, nextToken, expectedToken, transitionFunction);
 
 		// Used when the first token is not consumed by the previous state.

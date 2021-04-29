@@ -3,6 +3,12 @@ package co.aurasphere.gomorrasql;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Keywords used by GomorraSQL.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class Keywords {
 
 	public final static String SELECT_KEYWORD = "ripigliammo";

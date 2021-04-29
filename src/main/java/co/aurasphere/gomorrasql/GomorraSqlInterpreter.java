@@ -15,6 +15,12 @@ import co.aurasphere.gomorrasql.model.WhereCondition;
 import co.aurasphere.gomorrasql.states.AbstractState;
 import co.aurasphere.gomorrasql.states.InitialState;
 
+/**
+ * Interpreter for the GomorraSQL.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class GomorraSqlInterpreter {
 
 	private Connection connection;
@@ -23,6 +29,12 @@ public class GomorraSqlInterpreter {
 		this.connection = connection;
 	}
 
+	/**
+	 * Converts a GomorraSQL query into a standard SQL query.
+	 * 
+	 * @param gomorraQuery the query to convert
+	 * @return an equivalent SQL query
+	 */
 	public static String toSqlQuery(String gomorraQuery) {
 		QueryInfo info = parseQuery(gomorraQuery);
 		return buildSqlQuery(info);
@@ -129,6 +141,12 @@ public class GomorraSqlInterpreter {
 		return query;
 	}
 
+	/**
+	 * Executes the given GomorraSQL query in the connected database.
+	 * 
+	 * @param gomorraSqlQuery the query to execute
+	 * @return the result of the query
+	 */
 	public GomorraSqlQueryResult execute(String gomorraSqlQuery) {
 		QueryInfo queryInfo = parseQuery(gomorraSqlQuery);
 		String sqlQuery = buildSqlQuery(queryInfo);

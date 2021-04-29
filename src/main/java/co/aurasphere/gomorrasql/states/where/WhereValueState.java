@@ -6,6 +6,13 @@ import co.aurasphere.gomorrasql.model.QueryInfo;
 import co.aurasphere.gomorrasql.model.WhereCondition;
 import co.aurasphere.gomorrasql.states.AbstractState;
 
+/**
+ * State for completing the last WHERE subclause in the format "field operator
+ * value" by inserting the value.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class WhereValueState extends AbstractState {
 
 	private WhereCondition condition;

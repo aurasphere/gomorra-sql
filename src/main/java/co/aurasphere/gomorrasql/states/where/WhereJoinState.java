@@ -7,6 +7,13 @@ import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 import co.aurasphere.gomorrasql.states.AbstractState;
 
+/**
+ * State for joining two WHERE subclause using an AND or OR operator, or
+ * finishing the WHERE clause.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class WhereJoinState extends AbstractState {
 
 	public WhereJoinState(QueryInfo queryInfo) {
@@ -25,7 +32,7 @@ public class WhereJoinState extends AbstractState {
 		}
 		throw new CaggiaFaException(Arrays.asList(Keywords.AND_KEYWORD, Keywords.OR_KEYWORD), token);
 	}
-	
+
 	@Override
 	public boolean isFinalState() {
 		return true;

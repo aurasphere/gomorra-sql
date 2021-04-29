@@ -9,6 +9,12 @@ import java.util.Scanner;
 
 import co.aurasphere.gomorrasql.model.GomorraSqlQueryResult;
 
+/**
+ * Shell wrapper on the {@link GomorraSqlInterpreter}.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class GomorraSqlShell {
 
 	public static void main(String[] args) throws Exception {

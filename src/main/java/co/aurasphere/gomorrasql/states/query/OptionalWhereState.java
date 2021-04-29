@@ -13,6 +13,13 @@ import co.aurasphere.gomorrasql.states.AnyTokenConsumerState;
 import co.aurasphere.gomorrasql.states.GreedyMatchKeywordState;
 import co.aurasphere.gomorrasql.states.where.WhereFieldState;
 
+/**
+ * State that allows for an optional WHERE clause, JOIN clause (only when the
+ * query is a select) or end of the query.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class OptionalWhereState extends AbstractState {
 
 	public OptionalWhereState(QueryInfo queryInfo) {
@@ -34,7 +41,7 @@ public class OptionalWhereState extends AbstractState {
 		}
 		throw new CaggiaFaException(expectedKeywords, token);
 	}
-	
+
 	@Override
 	public boolean isFinalState() {
 		return true;

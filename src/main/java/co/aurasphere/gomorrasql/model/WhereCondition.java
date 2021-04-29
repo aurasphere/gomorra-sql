@@ -1,5 +1,11 @@
 package co.aurasphere.gomorrasql.model;
 
+/**
+ * Represents a statement in a where condition of a GomorraSQL query.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class WhereCondition {
 
 	private String field;

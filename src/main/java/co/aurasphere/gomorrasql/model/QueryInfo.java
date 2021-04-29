@@ -3,6 +3,12 @@ package co.aurasphere.gomorrasql.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Context wrapper for the parsed query.
+ * 
+ * @author Donato Rimenti
+ *
+ */
 public class QueryInfo {
 
 	public enum QueryType {
