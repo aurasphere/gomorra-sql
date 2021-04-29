@@ -4,15 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere</groupId>
 	<artifactId>gomorra-sql</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<dependencies>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.23</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

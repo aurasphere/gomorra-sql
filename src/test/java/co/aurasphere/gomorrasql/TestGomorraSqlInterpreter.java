@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
-import junit.framework.Assert;
 
 public class TestGomorraSqlInterpreter {
-	
+
 	private Connection connection;
 
 	@Before
@@ -29,7 +29,7 @@ public class TestGomorraSqlInterpreter {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
 		gsi.execute("nzipp 'ngoppa city chist 'RHO', 7");
 	}
-	
+
 	@Test
 	public void testSqlConversion() throws SQLException {
 		String gomorraQuery = "nzipp 'ngoppa city chist 6, 8";
