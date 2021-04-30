@@ -1,11 +1,10 @@
 [![Travis](https://img.shields.io/travis/aurasphere/gomorra-sql.svg)](https://travis-ci.org/aurasphere/gomorra-sql)
 [![Maintainability](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/maintainability)](https://codeclimate.com/github/aurasphere/gomorra-sql/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/test_coverage)](https://codeclimate.com/github/aurasphere/gomorra-sql/test_coverage)
-[![Join the chat at https://gitter.im/jyandex/Lobby](https://badges.gitter.im/jyandex/Lobby.svg)](https://gitter.im/gomorra-sql/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/gomorra-sql/community](https://badges.gitter.im/gomorra-sql/community.svg)](https://gitter.im/gomorra-sql/community)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
 # GomorraSQL
-
 GomorraSQL it's a easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in Napoletan language.
 
 ## Set up
@@ -21,7 +20,12 @@ To use GomorraSQL as a database client, download the latest jar in the release s
     
 The client will ask for a JDBC string representing the database to connect to (including credentials). After the connection is established, you can start running commands.
 
+## Language basics
+Before delving into the specific commands, it's important to consider some general rules to avoid "cuoppo" mistakes:
 
+- paremthesis are not valid characters in GomorraSQL queries. In the following examples they are just used to distinguish between (mandatory parameters) and [optional parameters]
+-  there's no end query character, since GomorraSQL doesn't allow multi-line queries
+-  spacing is very important when using operators! A query using a condition ```a = 5``` will work but the same query with ```a= 5``` or ```a =5``` or ```a=5``` will not
 
 ## Data Manipulation Language
 Similar to standard SQL, GomorraSQL allows to perform data manipulation. Here's a list of supported operations:
@@ -32,7 +36,7 @@ To retrieve data, you can use the ```ripigliammo``` command. Here's the command 
     ripigliammo (<comma_separated_column_names> || tutto chillo ch'era 'o nuostro) mmiez 'a <table_name> [pesc e pesc <table_name>] [arò <condition>]
 
 The first argument for the ```ripigliammo``` command is the columns to retrieve. They can be specified either as a list of comma separated values or with the ```tutto chillo ch'era 'o nuostro``` which will return all the columns.
-After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```.
+After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```. The join condition is specified in the ```arò``` clause, along with the row filtering.
 Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. For more info, see the conditions section.
 
 ### Deleting data
