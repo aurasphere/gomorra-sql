@@ -1,0 +1,21 @@
+language: java
+sudo: false
+jdk:
+  - openjdk8
+install: true
+
+branches:
+  only:
+  - master
+  
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  
+script:
+  - mvn clean install cobertura:cobertura
+  
+after_success:
+  - ./cc-test-reporter format-coverage -t cobertura target/site/cobertura/coverage.xml
+  - ./cc-test-reporter upload-coverage
