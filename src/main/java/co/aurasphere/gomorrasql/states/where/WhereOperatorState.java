@@ -25,7 +25,7 @@ public class WhereOperatorState extends AbstractState {
 
 	@Override
 	public AbstractState transitionToNextState(String token) throws CaggiaFaException {
-		if (Keywords.WHERE_OPERATORS.contains(token)) {
+		if (Keywords.WHERE_OPERATORS.contains(token) || token.equalsIgnoreCase(Keywords.IS_KEYWORD)) {
 			if (token.equalsIgnoreCase(Keywords.IS_NOT_KEYWORDS[0])) {
 				condition.setOperator("IS NOT");
 				return new GreedyMatchKeywordState(queryInfo, Keywords.IS_NOT_KEYWORDS, q -> new WhereValueState(q, condition));

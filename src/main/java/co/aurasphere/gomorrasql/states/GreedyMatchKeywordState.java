@@ -35,7 +35,7 @@ public class GreedyMatchKeywordState extends AbstractState {
 
 	@Override
 	public AbstractState transitionToNextState(String token) throws CaggiaFaException {
-		if (token.equals(keywords[currentIndex])) {
+		if (token.equalsIgnoreCase(keywords[currentIndex])) {
 			currentIndex++;
 			if (currentIndex == keywords.length) {
 				return nextStateTransition.apply(queryInfo);
