@@ -129,7 +129,7 @@ Video lessons on GomorraSQL syntax and philosophy [are available here](https://w
 If you want to contribute to this project, just fork this repo and submit a pull request with your changes. Improvements are always appreciated!
 
 ## Project status
-This project is considered completed and won't be developed further unless I get any specific requests.
+This project is considered completed and won't be developed further.
 
 ## Contacts
 You can contact me using my account e-mail or opening an issue on this repo. I'll try to reply ASAP.
