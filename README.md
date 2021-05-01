@@ -73,7 +73,7 @@ Here are some sample queries:
 ### Inserting data
 Data insertion can be performed using the ```nzipp 'ngoppa``` operator as following:
 
-     ```nzipp 'ngoppa <table_name> (<column_1>, <column_2>...) chist <value_1>, <value_2>...```
+    nzipp 'ngoppa <table_name> (<column_1>, <column_2>...) chist <value_1>, <value_2>...
     
 After the table name, you can specify a list of columns whose data are being inserted. If not present, GomorraSQL will default to all columns. The ```chist``` keyword marks the beginning of a comma-separated list of values to insert. Each insert statement can only add one row.
 
