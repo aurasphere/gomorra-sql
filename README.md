@@ -34,16 +34,29 @@ Likewise standard SQL, GomorraSQL allows performing data manipulation. Here's a 
 ### Retrieving data
 To retrieve data, you can use the ```ripigliammo``` command. Here's the command syntax:
 
-    ripigliammo (<comma_separated_column_names> || tutto chillo ch'era 'o nuostro) mmiez 'a <table_name> [pesc e pesc <table_name>] [arò <condition>]
+    ripigliammo (<comma_separated_column_names> || tutto chillo ch'era 'o nuostro) mmiez 'a <table_name> [pesc e pesc <table_name>...] [arò <condition>]
 
 The first argument for the ```ripigliammo``` command is the columns to retrieve. They can be specified either as a list of comma-separated values or with the ```tutto chillo ch'era 'o nuostro``` which will return all the columns.
+
 After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently, there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```. The join condition is specified in the ```arò``` clause, along with the row filtering.
+
 Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. For more info, see the conditions section.
+
+Here are some sample queries:
+
+    ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a user  # retrieves all users' data
+    ripigliammo email mmiez 'a user arò id = 6 o name è nisciun  # retrieves all the emails of the users with id 6 or null name
+    ripigliammo email mmiez 'a user pesc e pesc city pesc e pesc account arò user.id = 6 e user.birth_city = city.id e user.account_id = account.id  # retrieves the data of the user with id 6 along joined with his birth city and his account data
 
 ### Deleting data
 Data deletion can be performed using the ```facimm na' strage``` command which supports a subset of options from the ```ripigliammo``` command. Here's the syntax:
 
     facimm na' strage mmiez 'a <table_name> [arò <condition>]
+    
+Here are some sample queries:
+
+    facimm na' strage mmiez 'a user  # deletes all users' data
+    facimm na' strage mmiez 'a user arò name nun è nisciun o deleted è true  # deletes the users with name not null or with deleted = true
     
 ### Updating data
 The command ```rifacimm``` is used to update data in a table. The syntax is:
@@ -52,12 +65,23 @@ The command ```rifacimm``` is used to update data in a table. The syntax is:
     
 The  ```accunza``` operator marks the begin of a list of column/values assignments using the assignment operator ```accussì```.
 
+Here are some sample queries:
+
+    rifacimm user accunza name accussì "Pippo"  # sets the name "Pippo" for all the users
+    rifacimm user accunza name accussì "Pinco", surname accussì "Pallo" arò name è nisciun  # sets the name to "Pinco" and surname to "Pallo" for all users with null name
+
 ### Inserting data
 Data insertion can be performed using the ```nzipp 'ngoppa``` operator as following:
 
      ```nzipp 'ngoppa <table_name> (<column_1>, <column_2>...) chist <value_1>, <value_2>...```
     
 After the table name, you can specify a list of columns whose data are being inserted. If not present, GomorraSQL will default to all columns. The ```chist``` keyword marks the beginning of a comma-separated list of values to insert. Each insert statement can only add one row.
+
+Here are some sample queries:
+
+    nzipp 'ngoppa user chist 1, "Pinco", "Pallo"  # inserts a new user with all his data
+    nzipp 'ngoppa user name chist "Pinco"  # inserts a new user with only his name set
+
 
 ## Transaction support
 Being a fully ACID compliant language, GomorraSQL offers basic transaction management. To begin a transaction, you can issue the command ```ua uagliò```. You can then commit the transaction with the command ```iamme bello ia'``` or perform rollback with the command ```sfaccimm```.
@@ -91,6 +115,12 @@ Follows a table that roughly maps GomorraSQL language to standard SQL:
 | <>                             | <>             | ANY WHERE CLAUSE       |
 | <=                             | <=             | ANY WHERE CLAUSE       |
 | >=                             | >=             | ANY WHERE CLAUSE       |
+| sfaccimm                       | ROLLBACK       | TRANSACTION            |
+| iamme bello ia'                | COMMIT         | TRANSACTION            |
+| ua uagliò                      | BEGIN TRANSACTION | TRANSACTION         |
+
+## Supported Database
+GomorraSQL has been extensively tested with MySQL and H2. Other databases may not work properly.
 
 ## Training
 Video lessons on GomorraSQL syntax and philosophy [are available here](https://www.nowtv.it/watch/home/asset/gomorra-la-serie/skyatlantic_7bb8b3e11d19439fb71c68349b2cfab3). If you are also interested in corporate training, feel free to contact me for pricing.
