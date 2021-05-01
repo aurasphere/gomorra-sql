@@ -1,6 +1,6 @@
 [![Travis](https://img.shields.io/travis/aurasphere/gomorra-sql.svg)](https://travis-ci.org/aurasphere/gomorra-sql)
-[![Maintainability](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/maintainability)](https://codeclimate.com/github/aurasphere/gomorra-sql/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/test_coverage)](https://codeclimate.com/github/aurasphere/gomorra-sql/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6de2eb23249ef4c8a60c/maintainability)](https://codeclimate.com/github/aurasphere/gomorra-sql/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6de2eb23249ef4c8a60c/test_coverage)](https://codeclimate.com/github/aurasphere/gomorra-sql/test_coverage)
 [![Join the chat at https://gitter.im/gomorra-sql/community](https://badges.gitter.im/gomorra-sql/community.svg)](https://gitter.im/gomorra-sql/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
@@ -40,7 +40,7 @@ The first argument for the ```ripigliammo``` command is the columns to retrieve.
 
 After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently, there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```. The join condition is specified in the ```arò``` clause, along with the row filtering.
 
-Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. For more info, see the conditions section.
+Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. The conditions works exactly like in SQL, with a slightly different syntax for some operators (check the [Language Reference](#language-reference) section).
 
 Here are some sample queries:
 
