@@ -5,7 +5,7 @@ import co.aurasphere.gomorrasql.model.CaggiaFaException;
 import co.aurasphere.gomorrasql.model.QueryInfo;
 import co.aurasphere.gomorrasql.states.AbstractState;
 import co.aurasphere.gomorrasql.states.AnyTokenConsumerState;
-import co.aurasphere.gomorrasql.states.CommaSeparedValuesState;
+import co.aurasphere.gomorrasql.states.CommaSeparedValuesWithAliasState;
 import co.aurasphere.gomorrasql.states.GreedyMatchKeywordState;
 
 /**
@@ -32,8 +32,8 @@ public class SelectColumnsState extends AbstractState {
 		} else {
 			// Token is a column name, we continue until there are none
 			queryInfo.addColumnName(token);
-			return new CommaSeparedValuesState(queryInfo, queryInfo.getColumnNames(), Keywords.FROM_KEYWORDS[0],
-					"%COLUMN_NAME%", q -> new GreedyMatchKeywordState(queryInfo, Keywords.FROM_KEYWORDS,
+			return new CommaSeparedValuesWithAliasState(queryInfo, queryInfo.getColumnNames(), Keywords.FROM_KEYWORDS[0],	"%COLUMN_NAME%", 
+                    q -> new GreedyMatchKeywordState(queryInfo, Keywords.FROM_KEYWORDS,
 							q2 -> new AnyTokenConsumerState(q2, q2::setTableName, OptionalWhereState::new)));
 		}
 	}

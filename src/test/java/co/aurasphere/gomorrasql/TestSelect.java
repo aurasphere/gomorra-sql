@@ -130,4 +130,19 @@ public class TestSelect {
 		Assert.assertEquals(4, counter);
 	}
 
+        @Test
+	public void testSelectAs() throws SQLException {
+		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
+		GomorraSqlQueryResult result = gsi.execute("ripigliammo first_name cumme nome, last_name cumme cognome mmiez 'a user arò address nun è nisciun");
+		ResultSet resultSet = result.getResultSet();
+		int counter = 1;
+		String[] names = { "PINCO", "PAOLINO", "FRED" };
+		while (resultSet.next()) {
+			String name = resultSet.getString("nome");
+			Assert.assertEquals(names[counter - 1], name);
+			counter++;
+		}
+		Assert.assertEquals(4, counter);      
+	}
+
 }

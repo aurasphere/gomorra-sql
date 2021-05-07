@@ -15,8 +15,8 @@ import co.aurasphere.gomorrasql.model.QueryInfo;
  */
 public class AnyTokenConsumerState extends AbstractState {
 
-	private Consumer<String> tokenConsumer;
-	private Function<QueryInfo, AbstractState> transitionFunction;
+	private final Consumer<String> tokenConsumer;
+	private final Function<QueryInfo, AbstractState> transitionFunction;
 
 	public AnyTokenConsumerState(QueryInfo queryInfo, Consumer<String> tokenConsumer,
 			Function<QueryInfo, AbstractState> transitionFunction) {

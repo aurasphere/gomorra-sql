@@ -32,5 +32,6 @@ public class Keywords {
 	public static final List<String> WHERE_OPERATORS = Arrays.asList(">", "<", "=", "!=", "<>", ">=", "<=",
 			Keywords.IS_KEYWORD, Keywords.IS_NOT_KEYWORDS[0]);
 	public static final String SET_EQUAL_KEYWORD = "accussì";
-        public static final String LIMIT_KEYWORD = "è pccirill ashpiett";
+	public static final String LIMIT_KEYWORD = "è pccirill ashpiett";
+	public static final String AS_KEYWORD = "cumme";
 }
