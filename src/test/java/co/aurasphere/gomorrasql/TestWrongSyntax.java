@@ -44,7 +44,7 @@ public class TestWrongSyntax {
 	@Test(expected = CaggiaFaException.class)
 	public void testQueryEndExpected() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("sfaccimm wrong");
+		gsi.execute("sta' senza pensier wrong");
 	}
 	
 	@Test(expected = CaggiaFaException.class)
@@ -62,13 +62,13 @@ public class TestWrongSyntax {
 	@Test(expected = CaggiaFaException.class)
 	public void testWhereInvalidOperator() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id !! 4");
+		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id !! 4");
 	}
 	
 	@Test(expected = CaggiaFaException.class)
 	public void testWrongSelectWhereJoinOperator() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id <= 4 ma 5 > 1");
+		gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id <= 4 ma 5 > 1");
 	}
 	
 	@Test(expected = CaggiaFaException.class)
@@ -86,6 +86,6 @@ public class TestWrongSyntax {
 	@Test(expected = CaggiaFaException.class)
 	public void testWrongUpdateWhereClause() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("rifacimm city accunza city_id accussì 1 e basta");
+		gsi.execute("rifacimm city accunza city_id accussï¿½ 1 e basta");
 	}
 }

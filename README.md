@@ -84,7 +84,7 @@ Here are some sample queries:
 
 
 ## Transaction support
-Being a fully ACID compliant language, GomorraSQL offers basic transaction management. To begin a transaction, you can issue the command ```ua uagliò```. You can then commit the transaction with the command ```iamme bello ia'``` or perform rollback with the command ```sfaccimm```.
+Being a fully ACID compliant language, GomorraSQL offers basic transaction management. To begin a transaction, you can issue the command ```me sient'```. You can then commit the transaction with the command ```tutt' appost``` or perform rollback with the command ```sta' senza pensier```.
 
 ## Language reference
 Follows a table that roughly maps GomorraSQL language to standard SQL:
@@ -115,9 +115,9 @@ Follows a table that roughly maps GomorraSQL language to standard SQL:
 | <>                             | <>             | ANY WHERE CLAUSE       |
 | <=                             | <=             | ANY WHERE CLAUSE       |
 | >=                             | >=             | ANY WHERE CLAUSE       |
-| sfaccimm                       | ROLLBACK       | TRANSACTION            |
-| iamme bello ia'                | COMMIT         | TRANSACTION            |
-| ua uagliò                      | BEGIN TRANSACTION | TRANSACTION         |
+| sta' senza pensier             | ROLLBACK       | TRANSACTION            |
+| tutt' appost                   | COMMIT         | TRANSACTION            |
+| me sient'                      | BEGIN TRANSACTION | TRANSACTION         |
 
 ## Supported Database
 GomorraSQL has been extensively tested with MySQL and H2. Other databases may not work properly.

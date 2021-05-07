@@ -28,10 +28,10 @@ public class TestTransactions {
 	@Test
 	public void testTransactionRollback() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("ua uagliò");
+		gsi.execute("me sient'");
 		gsi.execute("nzipp 'ngoppa city chist 6, 'RHO'");
 		GomorraSqlQueryResult result = gsi
-				.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id = 6");
+				.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id = 6");
 		ResultSet resultSet = result.getResultSet();
 		int expectedCount = 1;
 		while (resultSet.next()) {
@@ -39,8 +39,8 @@ public class TestTransactions {
 		}
 		Assert.assertEquals(expectedCount, 2);
 
-		gsi.execute("sfaccimm");
-		result = gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id = 6");
+		gsi.execute("sta' senza pensier");
+		result = gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id = 6");
 		resultSet = result.getResultSet();
 		expectedCount = 1;
 		while (resultSet.next()) {
@@ -52,10 +52,10 @@ public class TestTransactions {
 	@Test
 	public void testTransactionCommit() throws SQLException {
 		GomorraSqlInterpreter gsi = new GomorraSqlInterpreter(connection);
-		gsi.execute("ua uagliò");
+		gsi.execute("me sient'");
 		gsi.execute("nzipp 'ngoppa city chist 6, 'RHO'");
 		GomorraSqlQueryResult result = gsi
-				.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id = 6");
+				.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id = 6");
 		ResultSet resultSet = result.getResultSet();
 		int expectedCount = 1;
 		while (resultSet.next()) {
@@ -63,8 +63,8 @@ public class TestTransactions {
 		}
 		Assert.assertEquals(expectedCount, 2);
 
-		gsi.execute("iamme bello ia'");
-		result = gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arò city_id = 6");
+		gsi.execute("tutt' appost");
+		result = gsi.execute("ripigliammo tutto chillo ch'era 'o nuostro mmiez 'a city arï¿½ city_id = 6");
 		resultSet = result.getResultSet();
 		expectedCount = 1;
 		while (resultSet.next()) {
