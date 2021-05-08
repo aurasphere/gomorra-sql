@@ -40,7 +40,7 @@ The first argument for the ```ripigliammo``` command is the columns to retrieve.
 
 After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently, there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```. The join condition is specified in the ```arò``` clause, along with the row filtering.
 
-Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. The conditions works exactly like in SQL, with a slightly different syntax for some operators (check the [Language Reference](#language-reference) section).
+Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. The conditions work exactly like in SQL, with a slightly different syntax for some operators (check the [Language Reference](#language-reference) section).
 
 Here are some sample queries:
 
