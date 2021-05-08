@@ -5,7 +5,7 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
 # GomorraSQL
-GomorraSQL it's an easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in Napoletan language.
+GomorraSQL it's an easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
 
 ## Set up
 GomorraSQL can be used either as a Java library or as a standalone SQL database client.
