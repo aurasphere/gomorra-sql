@@ -126,7 +126,7 @@ GomorraSQL has been extensively tested with MySQL and H2. Other databases may no
 Video lessons on GomorraSQL syntax and philosophy [are available here](https://www.nowtv.it/watch/home/asset/gomorra-la-serie/skyatlantic_7bb8b3e11d19439fb71c68349b2cfab3). If you are also interested in corporate training, feel free to contact me for pricing.
 
 ## Contributions
-If you want to contribute to this project, just fork this repo and submit a pull request with your changes. Improvements are always appreciated!
+Improvements are always appreciated! If you want to contribute to this project though, remember to open an issue with your suggestion before doing any changes. This will help you avoid working on something that won't get merged.
 
 ## Project status
 This project is considered completed and won't be developed further.
