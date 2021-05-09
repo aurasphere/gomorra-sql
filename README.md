@@ -4,7 +4,8 @@
 [![Join the chat at https://gitter.im/gomorra-sql/community](https://badges.gitter.im/gomorra-sql/community.svg)](https://gitter.im/gomorra-sql/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
-# GomorraSQL
+![logo](https://user-images.githubusercontent.com/14991778/117577411-f5a48300-b0e9-11eb-9f27-dbc68c8d24bc.jpg)
+
 GomorraSQL is an easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
 
 ## Set up
