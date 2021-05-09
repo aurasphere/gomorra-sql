@@ -7,7 +7,7 @@
 ![logoGomorraSQL](https://user-images.githubusercontent.com/14991778/117577721-3781f900-b0eb-11eb-82e3-a5426497c54e.JPG)
 
 
-GomorraSQL is an easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
+GomorraSQL is an easy and straightforward interpreted SQL dialect that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
 
 ## Set up
 GomorraSQL can be used either as a Java library or as a standalone SQL database client.
