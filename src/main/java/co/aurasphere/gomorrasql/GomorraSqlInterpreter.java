@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
@@ -42,14 +41,11 @@ public class GomorraSqlInterpreter {
 
 	private static QueryInfo parseQuery(String query) {
 		AbstractState currentState = new InitialState();
-		// TODO: bug: whitespaces inside quotes should be ignored
-		StringTokenizer tokenizer = new StringTokenizer(query, ", ", true);
-		while (tokenizer.hasMoreTokens()) {
-			String nextToken = tokenizer.nextToken().trim();
-			if (!nextToken.isEmpty()) {
-				currentState = currentState.transitionToNextState(nextToken);
-			}
-		}
+        
+        List<String> result = SQLTokenizer.tokenize(query);
+        for( String token : result ){
+            currentState = currentState.transitionToNextState(token);
+        }
 
 		if (!currentState.isFinalState()) {
 			throw new CaggiaFaException("Unexpected end of query");
