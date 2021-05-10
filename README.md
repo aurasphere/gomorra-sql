@@ -4,7 +4,7 @@
 [![Join the chat at https://gitter.im/gomorra-sql/community](https://badges.gitter.im/gomorra-sql/community.svg)](https://gitter.im/gomorra-sql/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
-![logoGomorraSQL](https://user-images.githubusercontent.com/14991778/117577721-3781f900-b0eb-11eb-82e3-a5426497c54e.JPG)
+![logo](https://user-images.githubusercontent.com/14991778/117669306-0a931c00-b1a7-11eb-8db8-babc14e767d1.png)
 
 
 GomorraSQL is an easy and straightforward interpreted SQL dialect that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
@@ -135,6 +135,9 @@ This project is considered completed and won't be developed further.
 
 ## Contacts
 You can contact me using my account e-mail or opening an issue on this repo. I'll try to reply ASAP.
+
+## Acknowledgments
+Thanks to [Federica Lisci](https://www.linkedin.com/in/federica-lisci-377220162/) for the logo!
 
 ## License
 The project is released under the MIT license, which lets you reuse the code for any purpose you want (even commercial) with the only requirement being copying this project license on your project.
