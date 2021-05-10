@@ -4,8 +4,10 @@
 [![Join the chat at https://gitter.im/gomorra-sql/community](https://badges.gitter.im/gomorra-sql/community.svg)](https://gitter.im/gomorra-sql/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-orange.svg)](https://www.paypal.com/donate/?cmd=_donations&business=8UK2BZP2K8NSS)
 
-# GomorraSQL
-GomorraSQL it's an easy and straightforward interpreted SQL language that allows you to write simpler and more understandable queries in Napoletan language.
+![logoGomorraSQL](https://user-images.githubusercontent.com/14991778/117577721-3781f900-b0eb-11eb-82e3-a5426497c54e.JPG)
+
+
+GomorraSQL is an easy and straightforward interpreted SQL dialect that allows you to write simpler and more understandable queries in [Neapolitan Language](https://en.wikipedia.org/wiki/Neapolitan_language).
 
 ## Set up
 GomorraSQL can be used either as a Java library or as a standalone SQL database client.
@@ -40,7 +42,7 @@ The first argument for the ```ripigliammo``` command is the columns to retrieve.
 
 After the columns, the following parameter is the name of the table where to fetch the data with ```mmiez 'a```. Data can be fetched from multiple tables by using the optional join operator ```pesc e pesc``` followed by another table name. Currently, there's no limit on the number of ```pesc e pesc``` that can be applied to a single ```ripigliammo```. The join condition is specified in the ```arò``` clause, along with the row filtering.
 
-Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. The conditions works exactly like in SQL, with a slightly different syntax for some operators (check the [Language Reference](#language-reference) section).
+Finally, you can filter the rows using the optional ```arò``` clause, followed by one or more conditions. The conditions work exactly like in SQL, with a slightly different syntax for some operators (check the [Language Reference](#language-reference) section).
 
 Here are some sample queries:
 
@@ -126,7 +128,7 @@ GomorraSQL has been extensively tested with MySQL and H2. Other databases may no
 Video lessons on GomorraSQL syntax and philosophy [are available here](https://www.nowtv.it/watch/home/asset/gomorra-la-serie/skyatlantic_7bb8b3e11d19439fb71c68349b2cfab3). If you are also interested in corporate training, feel free to contact me for pricing.
 
 ## Contributions
-If you want to contribute to this project, just fork this repo and submit a pull request with your changes. Improvements are always appreciated!
+Improvements are always appreciated! If you want to contribute to this project though, remember to open an issue with your suggestion before doing any changes. This will help you avoid working on something that won't get merged.
 
 ## Project status
 This project is considered completed and won't be developed further.
