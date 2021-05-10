@@ -1,3 +1,7 @@
+---
+title: GomorraSQL
+---
+
 [![Travis](https://img.shields.io/travis/aurasphere/gomorra-sql.svg)](https://travis-ci.org/aurasphere/gomorra-sql)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6de2eb23249ef4c8a60c/maintainability)](https://codeclimate.com/github/aurasphere/gomorra-sql/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6de2eb23249ef4c8a60c/test_coverage)](https://codeclimate.com/github/aurasphere/gomorra-sql/test_coverage)
