@@ -7,13 +7,22 @@ import java.util.List;
  *
  * @author Matteo
  */
-public class SQLTokenizer {
+public final class SQLTokenizer {
 
+    /**
+     * Private constructor for utility class.
+     */
     private SQLTokenizer() {
 
     }
 
-    static final List<String> tokenize(final String query) {
+    /**
+     * Tokenize the input query in single usable tokens.
+     *
+     * @param query the query to tokenize
+     * @return the arrya list of String tokens
+     */
+    static List<String> tokenize(final String query) {
         List<String> result = new ArrayList<>();
 
         boolean quote = false;
