@@ -1,40 +1,18 @@
----
-  title: Certificate
----
 <html>
 
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Saira+Condensed:700');
 
-        hr {
-            background-color: #be2d24;
-            height: 3px;
-            margin: 5px;
-        }
-
-        div#cert-footer {
-            position: absolute;
-            width: 60%;
-            top: 550px;
-            text-align: center;
-        }
-
-        #cert-stamp,
-        #cert-ceo-sign {
-            width: 60%;
-            display: inline-block;
-        }
-
-        div#cert-issued-by,
-        div#cert-ceo-design {
-            width: 40%;
-            display: inline-block;
+        #badge {
+            width: 140px;
             float: left;
+            margin: 15px;
+            position: absolute;
         }
 
-        div#cert-ceo-design {
-            margin-left: 10%;
+        #cert-title {
+            padding-top: 70px;
         }
 
         h1 {
@@ -42,28 +20,25 @@
             margin: 5px 0px;
         }
 
-        body {
-            width: 950px;
-            height: 690px;
-            position: absolute;
-            left: 30px;
-            top: 30px;
-            border: 3px solid red;
+        #outer {
+            border: 10px solid #be2d24;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         p {
             font-family: 'Arial', sans-serif;
             font-size: 18px;
-            margin: 5px 0px;
         }
 
-        html {
+        #certificate {
             display: inline-block;
             width: 1024px;
-            height: 768px;
-            border: 2px solid red;
-            background: #eee url("https://i.pinimg.com/originals/b3/17/db/b317db24945589699a4ef18150dc5b73.jpg") no-repeat;
-            background-size: 100%;
+            height: 576px;
+            border: 20px solid #ad1c13;
+            margin: 0;
+            background-color: #242424;
+            color: white;
         }
 
         h1#cert-holder {
@@ -86,72 +61,107 @@
 
         div#cert-verify {
             opacity: 1;
-            position: absolute;
-            top: 680px;
-            left: 60%;
             font-size: 12px;
             color: grey;
+            margin-bottom: 10px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        #ceo-sign {
+            margin-right: 20px;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="certified-users.js"></script>
+    <script>
+        function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            var items = location.search.substr(1).split("&");
+            for (var index = 0; index < items.length; index++) {
+                tmp = items[index].split("=");
+                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            }
+            return result;
+        }
+
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        $("document").ready(function () {
+            var username = findGetParameter("user");
+            if (certifiedUsers.includes(username)) {
+                // Formats the user name.
+                var formattedUsername = username.split("-").map(capitalize).join(" ");
+                $("#cert-holder").text(formattedUsername);
+                $("#user-link").text(username);
+
+                $("#certificate").show();
+                $("#404").hide();
+            } else {
+                $("#certificate").hide();
+                $("#404").show();
+            }
+        });
+    </script>
 </head>
 
 <body>
-    <h1 id="cert-title">
-        Certificate of Proficiency
-    </h1>
-    <br><br><br><br>
+    <div id="certificate">
+        <div id="outer">
+            <img id="badge" src="badge.png">
+            <h1 id="cert-title" class="center">
+                Certificate of Proficiency
+            </h1>
+            <br><br>
 
-    <p class="smaller" id="cert-declaration">
-        THIS IS TO CERTIFY THAT
-    </p>
+            <p class="smaller center" id="cert-declaration">
+                THIS IS TO CERTIFY THAT
+            </p>
 
-    <h1 id="cert-holder">
-        Firstname Surname
-    </h1>
+            <h1 id="cert-holder" class="center">
+                Firstname Surname
+            </h1>
 
-    <p class="smaller" id='cert-completed-line'>
-        has successfully completed the
-    </p>
+            <p class="smaller center" id='cert-completed-line'>
+                is officially recognized as a
+            </p>
 
-    <h2 id="cert-course">
-        Course in Question
-    </h2>
+            <h2 id="cert-course" class="center">
+                GomorraSQL DevOps Associate
+            </h2>
 
-    <div id="cert-desc" <p class="smaller" id='cert-details'>
-        which includes the knowledge of English for Technical Conversations, Applied Mathematics, General Robotics
-        Science,
-        Basic Computing, Web & Mobile Development and Basic User Interface Design.
-        </p>
-    </div>
+            <p id="cert-from" class="smaller center">
+                &nbsp; from GomorraSQL University
+            </p>
+            <br>
 
-    <br>
-    <p id="cert-from" class="smaller">
-        &nbsp; from www.companywebsite.com
-    </p>
+            <div id="ceo-sign" class="right">
+                <p class="justify-center">The Company CEO,<br>Donato Rimenti</p>
+            </div>
 
-    <br>
-    <p class="smaller" id='cert-issued'>
-        <b>Issued on:</b> {{date}}.
-    </p>
-
-    <div id="cert-footer">
-        <div id="cert-issued-by">
-            <img id="cert-stamp"
-                src="https://i7.pngguru.com/preview/585/794/452/paper-rubber-stamp-postage-stamps-company-seal-seal-thumbnail.jpg">
-            <hr>
-            <p>Issued by<br>THE COMPANY S.L.</p>
-        </div>
-        <div id="cert-ceo-design">
-            <img id="cert-ceo-sign"
-                src="https://i7.pngguru.com/preview/585/794/452/paper-rubber-stamp-postage-stamps-company-seal-seal-thumbnail.jpg">
-            <hr>
-            <p>Company Ceo<br>CEO of The Company</p>
+            <div id="cert-verify" class="left">
+                You can verify this certificate at aurasphere.co/gomorra-sql/certificate.html?user=<span
+                    id="user-link"></span>
+            </div>
         </div>
     </div>
-
-    <div id="cert-verify">
-        Verify at companywebsite.ai/verify/XYZ12ER56129F. <br>
-        Company has confirmed the participation of this individual in the course.
+    </div>
+    <div id="404">
+        <h1 class="center">UA' UAGLIO BELL STO CERTIFICATO</h1>
     </div>
 </body>
 
