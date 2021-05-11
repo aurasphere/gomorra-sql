@@ -1,1 +1,1 @@
-var certifiedUsers=["donato-rimenti"];
+var certifiedUsers=["donato-rimenti","federica-lisci"];
