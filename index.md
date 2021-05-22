@@ -128,7 +128,7 @@ GomorraSQL has been extensively tested with MySQL and H2. Other databases may no
 Video lessons on GomorraSQL syntax and philosophy [are available here](https://www.nowtv.it/watch/home/asset/gomorra-la-serie/skyatlantic_7bb8b3e11d19439fb71c68349b2cfab3). If you are also interested in corporate training, feel free to contact me for pricing.
 
 ## Certifications
-If you have an issued certification, you can check it out at the following URL by replacing the "user" parameter with your name (replace spaces with hyphens): https://aurasphere.co/gomorra-sql/certificate.html?user=donato-rimenti.
+If you have an issued certification, you can check it out at the following URL by replacing the "user" parameter with your name (replace spaces with hyphens): [https://aurasphere.co/gomorra-sql/certificate.html?user=donato-rimenti](https://aurasphere.co/gomorra-sql/certificate.html?user=donato-rimenti).
 
 ## Contributions
 Improvements are always appreciated! If you want to contribute to this project though, remember to open an issue with your suggestion before doing any changes. This will help you avoid working on something that won't get merged.
