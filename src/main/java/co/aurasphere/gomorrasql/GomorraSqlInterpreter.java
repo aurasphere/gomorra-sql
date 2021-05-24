@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 import co.aurasphere.gomorrasql.model.CaggiaFaException;
@@ -42,14 +41,11 @@ public class GomorraSqlInterpreter {
 
 	private static QueryInfo parseQuery(String query) {
 		AbstractState currentState = new InitialState();
-		// TODO: bug: whitespaces inside quotes should be ignored
-		StringTokenizer tokenizer = new StringTokenizer(query, ", ", true);
-		while (tokenizer.hasMoreTokens()) {
-			String nextToken = tokenizer.nextToken().trim();
-			if (!nextToken.isEmpty()) {
-				currentState = currentState.transitionToNextState(nextToken);
-			}
-		}
+        
+        List<String> result = SQLTokenizer.tokenize(query);
+        for( String token : result ){
+            currentState = currentState.transitionToNextState(token);
+        }
 
 		if (!currentState.isFinalState()) {
 			throw new CaggiaFaException("Unexpected end of query");
@@ -113,7 +109,7 @@ public class GomorraSqlInterpreter {
 	private static String buildInsertQuery(QueryInfo queryInfo) {
 		StringBuilder query = new StringBuilder("INSERT INTO ").append(queryInfo.getTableName());
 		if (!queryInfo.getColumnNames().isEmpty()) {
-			query.append(" ( ").append(queryInfo.getColumnNames().stream().collect(Collectors.joining(", ")))
+			query.append(" ( ").append(queryInfo.getColumnNames().stream().collect( Collectors.joining(", ")))
 					.append(" )");
 		}
 		query.append(" VALUES ( ").append(queryInfo.getValues().stream().collect(Collectors.joining(", ")))
@@ -125,7 +121,10 @@ public class GomorraSqlInterpreter {
 		String query = "SELECT ";
 
 		// Column names
-		query += queryInfo.getColumnNames().stream().collect(Collectors.joining(", "));
+		String columns = queryInfo.getColumnNames().stream().collect(Collectors.joining(", "));
+
+		// AS trick
+		query += columns.replace("|", " AS ");
 
 		// Table name
 		query += " FROM " + queryInfo.getTableName();

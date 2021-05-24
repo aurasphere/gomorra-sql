@@ -19,15 +19,17 @@ public class QueryInfo {
 
 	private String tableName;
 
-	private List<String> columnNames = new ArrayList<>();
+	private final List<String> columnNames = new ArrayList<>();
 
-	private List<String> values = new ArrayList<>();
+	private final List<String> columnAliases = new ArrayList<>();
 
-	private List<WhereCondition> whereConditions = new ArrayList<>();
+	private final List<String> values = new ArrayList<>();
 
-	private List<String> joinedTables = new ArrayList<>();
+    private final List<WhereCondition> whereConditions = new ArrayList<>();
 
-	private List<String> whereConditionsJoinOperators = new ArrayList<>();
+	private final List<String> joinedTables = new ArrayList<>();
+
+	private final List<String> whereConditionsJoinOperators = new ArrayList<>();
 	
 	public QueryType getType() {
 		return type;
@@ -49,8 +51,13 @@ public class QueryInfo {
 		return columnNames;
 	}
 
-	public void addColumnName(String columnName) {
-		this.columnNames.add(columnName);
+	public List<String> getColumnAliases() {
+		return columnAliases;
+	}
+
+    public void addColumnName(String columnName) {
+		this.columnNames.add( columnName );
+        this.columnAliases.add( columnName );
 	}
 
 	public List<String> getValues() {

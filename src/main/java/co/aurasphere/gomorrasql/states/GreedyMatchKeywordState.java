@@ -15,8 +15,8 @@ import co.aurasphere.gomorrasql.model.QueryInfo;
 public class GreedyMatchKeywordState extends AbstractState {
 
 	private int currentIndex = 1;
-	private String[] keywords;
-	private Function<QueryInfo, AbstractState> nextStateTransition;
+	private final String[] keywords;
+	private final Function<QueryInfo, AbstractState> nextStateTransition;
 
 	public GreedyMatchKeywordState(QueryInfo queryInfo, String[] keywords,
 			Function<QueryInfo, AbstractState> nextStateTransition) {
