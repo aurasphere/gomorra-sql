@@ -47,9 +47,8 @@ public class InitialState extends AbstractState {
 			queryInfo.setType(QueryType.INSERT);
 			return new GreedyMatchKeywordState(queryInfo, Keywords.INSERT_KEYWORDS,
 					q -> new AnyTokenConsumerState(q, q::setTableName,
-							q2 -> new CommaSeparedValuesState(q2, q2.getColumnNames(), Keywords.VALUES_KEYWORD,
-									"%COLUMN_NAME%", true, false, q3 -> new CommaSeparedValuesState(q3, q3.getValues(),
-											null, "%VALUE%", true, true, FinalState::new))));
+							q2 -> new CommaSeparedValuesState(q2, q2.getColumnNames(), Keywords.VALUES_KEYWORD, "%COLUMN_NAME%", true, false,
+                                    q3 -> new CommaSeparedValuesState(q3, q3.getValues(), null, "%VALUE%", true, true, FinalState::new))));
 		}
 		if (token.equalsIgnoreCase(Keywords.COMMIT_KEYWORDS[0])) {
 			queryInfo.setType(QueryType.COMMIT);
